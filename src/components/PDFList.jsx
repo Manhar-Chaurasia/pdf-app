@@ -7,7 +7,7 @@ const PDFList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.npoint.io/dee51ea017d20efdfcc8")
+    fetch(process.env.REACT_APP_API)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch PDFs");
@@ -15,7 +15,7 @@ const PDFList = () => {
         return response.json();
       })
       .then((data) => {
-        console.log("Fetched data:", data); // Debug log
+        console.log("Fetched data:", data); 
         setPDFs(data);
       })
       .catch((error) => setError(error.message));
@@ -26,7 +26,7 @@ const PDFList = () => {
   );
 
   const handleClearSearch = () => {
-    setSearchTerm(""); // Clears the search input
+    setSearchTerm(""); 
   };
 
   return (

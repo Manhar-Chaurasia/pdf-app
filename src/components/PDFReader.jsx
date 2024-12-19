@@ -7,7 +7,7 @@ const PDFReader = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://api.npoint.io/dee51ea017d20efdfcc8")
+    fetch(process.env.REACT_APP_API)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch PDF data");
